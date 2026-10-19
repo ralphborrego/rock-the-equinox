@@ -1,0 +1,66 @@
+/* Rock the Equinox — simple dark festival theme */
+:root {
+    --bg: #141014;
+    --panel: #1f1a20;
+    --accent: #e8632c;
+    --accent-2: #f5b301;
+    --text: #f2ede8;
+    --muted: #a89fa3;
+    --border: #332b34;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+a { color: var(--accent-2); }
+.site-header {
+    background: #0d0b0d;
+    border-bottom: 3px solid var(--accent);
+    padding: 0.75rem 0;
+    position: sticky; top: 0; z-index: 10;
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.brand { text-decoration: none; color: var(--text); }
+.brand-name { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+.brand-tag { display: block; font-size: 0.8rem; color: var(--muted); }
+.main-nav a { color: var(--text); text-decoration: none; margin-left: 1rem; font-weight: 600; }
+.main-nav a:hover { color: var(--accent-2); }
+main.wrap { padding-top: 2rem; padding-bottom: 3rem; }
+.hero { text-align: center; padding: 3rem 1rem; background: linear-gradient(135deg, #241a1e, #141014); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 2rem; }
+.hero h1 { font-size: 2.6rem; margin: 0 0 0.25rem; text-transform: uppercase; letter-spacing: 1px; }
+.hero-sub { color: var(--muted); font-size: 1.1rem; margin: 0 0 0.5rem; }
+.hero-meta { font-weight: 700; color: var(--accent-2); }
+.hero-actions { margin-top: 1.25rem; }
+.btn {
+    display: inline-block; padding: 0.7rem 1.4rem; border-radius: 8px;
+    background: var(--panel); color: var(--text); text-decoration: none;
+    border: 1px solid var(--border); font-weight: 700; cursor: pointer;
+}
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn + .btn { margin-left: 0.5rem; }
+h1, h2 { text-transform: uppercase; letter-spacing: 0.5px; }
+h2 { color: var(--accent-2); margin-top: 2rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+.card img { width: 100%; border-radius: 6px; }
+.card h3 { margin: 0.5rem 0 0.25rem; }
+.muted { color: var(--muted); }
+.cta-band { margin-top: 2.5rem; padding: 2rem; text-align: center; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; }
+table.schedule { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+table.schedule th, table.schedule td { padding: 0.6rem; border-bottom: 1px solid var(--border); text-align: left; }
+table.schedule th { color: var(--accent-2); text-transform: uppercase; font-size: 0.85rem; }
+.form label { display: block; margin-bottom: 1rem; font-weight: 600; }
+.form input, .form textarea, .form select {
+    display: block; width: 100%; margin-top: 0.3rem; padding: 0.6rem;
+    background: #0d0b0d; border: 1px solid var(--border); border-radius: 6px; color: var(--text);
+}
+.success { background: #1d3a24; border: 1px solid #2f6b3c; padding: 1rem; border-radius: 8px; }
+.error { background: #3a1d1d; border: 1px solid #6b2f2f; padding: 0.75rem; border-radius: 8px; }
+.site-footer { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; text-align: center; color: var(--muted); }
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th, .admin-table td { padding: 0.5rem; border-bottom: 1px solid var(--border); text-align: left; }
