@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/auth.php';
-$editable = ['site_name', 'tagline', 'event_dates', 'venue', 'ticket_url', 'contact_email'];
+$editable = ['site_name', 'tagline', 'event_dates', 'event_start', 'venue',
+            'ticket_url', 'contact_email', 'facebook_url', 'instagram_url', 'youtube_url'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare('INSERT INTO settings (`key`, `value`) VALUES (?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`)');
     foreach ($editable as $k) {
@@ -12,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $current = [];
 foreach ($editable as $k) { $current[$k] = setting($pdo, $k, ''); }
 $labels = ['site_name' => 'Site name', 'tagline' => 'Tagline', 'event_dates' => 'Event dates',
-           'venue' => 'Venue', 'ticket_url' => 'Ticket URL', 'contact_email' => 'Contact email'];
+           'event_start' => 'Event start (ISO, e.g. 2027-09-03T12:00:00 — drives the countdown)',
+           'venue' => 'Venue', 'ticket_url' => 'Ticket URL', 'contact_email' => 'Contact email',
+           'facebook_url' => 'Facebook URL', 'instagram_url' => 'Instagram URL', 'youtube_url' => 'YouTube URL'];
 ?>
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">

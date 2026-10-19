@@ -9,12 +9,13 @@ if (isset($_GET['delete'])) {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare(
-        'INSERT INTO artists (name, genre, bio, image_url, stage, sort_order)
-         VALUES (?, ?, ?, ?, ?, ?)'
+        'INSERT INTO artists (name, genre, bio, image_url, stage, tier, sort_order)
+         VALUES (?, ?, ?, ?, ?, ?, ?)'
     );
     $stmt->execute([
         trim($_POST['name']), trim($_POST['genre']), trim($_POST['bio']),
         trim($_POST['image_url']), trim($_POST['stage'] ?: 'Main Stage'),
+        $_POST['tier'] === 'Headliner' ? 'Headliner' : 'Support',
         (int)($_POST['sort_order'] ?? 0),
     ]);
     header('Location: artists.php');
@@ -30,11 +31,12 @@ $artists = $pdo->query('SELECT * FROM artists ORDER BY sort_order, name')->fetch
 <h1>Manage Lineup</h1>
 <p><a href="dashboard.php">&larr; Dashboard</a></p>
 <table class="admin-table">
-<tr><th>#</th><th>Name</th><th>Genre</th><th>Stage</th><th></th></tr>
+<tr><th>#</th><th>Name</th><th>Tier</th><th>Genre</th><th>Stage</th><th></th></tr>
 <?php foreach ($artists as $a): ?>
 <tr>
     <td><?= (int)$a['sort_order'] ?></td>
     <td><?= e($a['name']) ?></td>
+    <td><?= e($a['tier'] ?? 'Support') ?></td>
     <td><?= e($a['genre']) ?></td>
     <td><?= e($a['stage']) ?></td>
     <td><a href="?delete=<?= (int)$a['id'] ?>" onclick="return confirm('Delete this artist?')">Delete</a></td>
@@ -46,6 +48,9 @@ $artists = $pdo->query('SELECT * FROM artists ORDER BY sort_order, name')->fetch
     <label>Name <input type="text" name="name" required></label>
     <label>Genre <input type="text" name="genre" placeholder="Rock"></label>
     <label>Stage <input type="text" name="stage" value="Main Stage"></label>
+    <label>Tier
+        <select name="tier"><option>Support</option><option>Headliner</option></select>
+    </label>
     <label>Sort order <input type="number" name="sort_order" value="0"></label>
     <label>Image URL <input type="url" name="image_url" placeholder="https://..."></label>
     <label>Bio <textarea name="bio" rows="4"></textarea></label>
