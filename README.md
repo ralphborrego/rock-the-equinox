@@ -33,6 +33,7 @@ mysql -u root equinox < sql/schema.sql
 # After pulling updates, apply migrations in order:
 mysql -u root equinox < sql/migrate_v2.sql
 mysql -u root equinox < sql/migrate_v3_lineup2026.sql
+mysql -u root equinox < sql/migrate_v4_sponsors.sql
 
 # 4. Create your board admin login:
 php -r "echo password_hash('choose-a-strong-password', PASSWORD_DEFAULT), PHP_EOL;"

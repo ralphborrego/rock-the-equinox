@@ -1,3 +1,4 @@
+SET NAMES utf8mb4;
 -- Rock the Equinox — v2 upgrade: festival-style features
 -- Run AFTER sql/schema.sql on existing databases:
 --   mysql -u root equinox < sql/migrate_v2.sql

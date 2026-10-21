@@ -12,19 +12,57 @@ $headliners = $pdo->query(
 )->fetchAll();
 $tiers = $pdo->query("SELECT * FROM ticket_tiers ORDER BY sort_order ASC LIMIT 3")->fetchAll();
 $faqs = $pdo->query("SELECT * FROM faqs ORDER BY sort_order ASC LIMIT 4")->fetchAll();
+$allArtists = $pdo->query("SELECT name FROM artists ORDER BY sort_order ASC, name ASC")->fetchAll(PDO::FETCH_COLUMN);
+$sponsors = $pdo->query("SELECT * FROM sponsors ORDER BY sort_order ASC, name ASC")->fetchAll();
+$majorSponsors = [];
+$otherSponsors = [];
+foreach ($sponsors as $s) {
+    if (strcasecmp($s['tier'], 'Major') === 0) { $majorSponsors[] = $s; }
+    else { $otherSponsors[] = $s; }
+}
 ?>
 </main>
 
 <section class="hero">
-    <p class="hero-kicker">Stigler, Oklahoma</p>
-    <h1><?= e($siteName) ?></h1>
-    <p class="hero-sub"><?= e($tagline) ?></p>
-    <p class="hero-meta"><?= e($eventDates) ?> &middot; <?= e($venue) ?></p>
-    <div class="hero-actions">
-        <a class="btn btn-primary" href="tickets.php">Get Tickets</a>
-        <a class="btn" href="lineup.php">Explore the Lineup</a>
+    <div class="hero-inner">
+        <p class="hero-kicker">Lake John Wells &middot; Stigler, Oklahoma</p>
+        <h1 class="hero-title" aria-label="<?= e($siteName) ?>">
+            <span class="t-rock">Rock</span>
+            <span class="t-the">The</span>
+            <span class="t-nox">Equinox</span>
+        </h1>
+        <p class="hero-sub"><?= e($tagline) ?>. Two days of Oklahoma loud on the lake — free, all ages, and wide open.</p>
+        <p class="hero-meta"><?= e($eventDates) ?> &middot; <?= e($venue) ?></p>
+        <div class="badges">
+            <span class="badge b1">Free Admission</span>
+            <span class="badge b2">All Ages</span>
+            <span class="badge b3">20 Bands &middot; 2 Days</span>
+            <span class="badge b4">Lakeside Camping</span>
+        </div>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="lineup.php">See the Lineup</a>
+            <a class="btn" href="schedule.php">Set Times</a>
+            <a class="btn" href="tickets.php">Get Tickets</a>
+        </div>
     </div>
 </section>
+
+<?php if ($allArtists): ?>
+<div class="marquee m1" aria-hidden="true">
+    <div class="marquee-track">
+        <?php for ($r = 0; $r < 2; $r++): foreach ($allArtists as $n): ?>
+        <span><?= e($n) ?></span><i>///</i>
+        <?php endforeach; endfor; ?>
+    </div>
+</div>
+<div class="marquee m2" aria-hidden="true">
+    <div class="marquee-track">
+        <?php for ($r = 0; $r < 2; $r++): foreach (array_reverse($allArtists) as $n): ?>
+        <span><?= e($n) ?></span><i>///</i>
+        <?php endforeach; endfor; ?>
+    </div>
+</div>
+<?php endif; ?>
 
 <div class="countdown-band">
     <p class="countdown-label" id="countdown-label">The gates open in</p>
@@ -48,6 +86,42 @@ $faqs = $pdo->query("SELECT * FROM faqs ORDER BY sort_order ASC LIMIT 4")->fetch
         <?php if (!$headliners): ?><p class="muted">Headliner announcements coming soon.</p><?php endif; ?>
     </div>
 </section>
+
+<section class="block">
+    <div class="section-head"><h2>XI by the numbers</h2></div>
+    <div class="stats">
+        <div class="stat"><span class="stat-num">20</span><span class="stat-lbl">Bands</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-lbl">Days</span></div>
+        <div class="stat"><span class="stat-num">$0</span><span class="stat-lbl">Admission</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Lake</span></div>
+    </div>
+</section>
+
+<?php if ($sponsors): ?>
+<section class="block">
+    <div class="section-head"><h2>Our Sponsors</h2><a href="sponsors.php">All sponsors &rarr;</a></div>
+    <?php if ($majorSponsors): ?>
+    <div class="sponsor-majors">
+        <?php foreach ($majorSponsors as $s): ?>
+        <article class="sponsor-major">
+            <?php if ($s['website']): ?><a href="<?= e($s['website']) ?>" target="_blank" rel="noopener"><?php endif; ?>
+                <?php if ($s['logo_url']): ?><img src="<?= e($s['logo_url']) ?>" alt="<?= e($s['name']) ?>"><?php endif; ?>
+                <span class="sponsor-name"><?= e($s['name']) ?></span>
+            <?php if ($s['website']): ?></a><?php endif; ?>
+        </article>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+    <?php if ($otherSponsors): ?>
+    <p class="sponsor-names">
+        <?php foreach ($otherSponsors as $i => $s): ?>
+        <?php if ($i): ?><span class="sep">///</span><?php endif; ?>
+        <?php if ($s['website']): ?><a href="<?= e($s['website']) ?>" target="_blank" rel="noopener"><?= e($s['name']) ?></a><?php else: ?><?= e($s['name']) ?><?php endif; ?>
+        <?php endforeach; ?>
+    </p>
+    <?php endif; ?>
+</section>
+<?php endif; ?>
 
 <?php if ($tiers): ?>
 <section class="block">

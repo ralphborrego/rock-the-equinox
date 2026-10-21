@@ -1,3 +1,4 @@
+SET NAMES utf8mb4;
 -- Rock the Equinox — v3: the real Rock the Equinox XI lineup (October 2–3, 2026)
 -- Run AFTER sql/schema.sql and sql/migrate_v2.sql:
 --   mysql -u root equinox < sql/migrate_v3_lineup2026.sql

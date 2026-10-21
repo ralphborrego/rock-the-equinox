@@ -7,6 +7,10 @@ $headliners = $pdo->query(
 $support = $pdo->query(
     "SELECT * FROM artists WHERE tier != 'Headliner' ORDER BY sort_order ASC, name ASC"
 )->fetchAll();
+$slotByArtist = [];
+foreach ($pdo->query("SELECT artist_id, day, start_time FROM schedule_slots")->fetchAll() as $s) {
+    $slotByArtist[$s['artist_id']] = $s;
+}
 ?>
 <h1>Lineup</h1>
 
@@ -19,6 +23,9 @@ $support = $pdo->query(
         <div class="hl-body">
             <p class="genre"><?= e($a['genre']) ?></p>
             <h3><?= e($a['name']) ?></h3>
+            <?php if (isset($slotByArtist[$a['id']])): $s = $slotByArtist[$a['id']]; ?>
+            <p class="slot-chip"><?= e($s['day']) ?> &middot; <?= e(date('g:i A', strtotime($s['start_time']))) ?></p>
+            <?php endif; ?>
             <?php if ($a['bio']): ?><p class="muted"><?= nl2br(e($a['bio'])) ?></p><?php endif; ?>
         </div>
     </article>
@@ -33,6 +40,9 @@ $support = $pdo->query(
     <?php if ($a['image_url']): ?><img src="<?= e($a['image_url']) ?>" alt="<?= e($a['name']) ?>"><?php endif; ?>
     <h3><?= e($a['name']) ?></h3>
     <p class="muted"><?= e($a['genre']) ?> &middot; <?= e($a['stage']) ?></p>
+    <?php if (isset($slotByArtist[$a['id']])): $s = $slotByArtist[$a['id']]; ?>
+    <p class="slot-chip"><?= e($s['day']) ?> &middot; <?= e(date('g:i A', strtotime($s['start_time']))) ?></p>
+    <?php endif; ?>
     <?php if ($a['bio']): ?><p><?= nl2br(e($a['bio'])) ?></p><?php endif; ?>
 </article>
 <?php endforeach; ?>

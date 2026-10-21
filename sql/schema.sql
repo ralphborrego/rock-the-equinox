@@ -1,3 +1,4 @@
+SET NAMES utf8mb4;
 -- Rock the Equinox — database schema (MySQL / MariaDB)
 -- Import: mysql -u USER -p DBNAME < sql/schema.sql
 
@@ -74,6 +75,12 @@ INSERT INTO settings (`key`, `value`) VALUES
     ('ticket_url', ''),
     ('contact_email', '')
 ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);
+
+-- Sponsors — mirrors migrate_v4_sponsors.sql.
+-- tier 'Major' = big logo (links out, new tab); any other tier = linked name only.
+-- Website below is a placeholder test link (Google) until the board supplies the real URL.
+INSERT INTO sponsors (name, tier, logo_url, website, sort_order) VALUES
+    ('Ol'' Raptor Tackle', 'Major', 'assets/img/sponsors/ol-raptor-tackle.jpg', 'https://www.google.com', 1);
 
 -- Rock the Equinox XI lineup (October 2-3, 2026) — mirrors migrate_v3_lineup2026.sql
 INSERT INTO artists (name, genre, bio, stage, sort_order) VALUES
