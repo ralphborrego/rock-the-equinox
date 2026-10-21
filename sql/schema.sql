@@ -69,13 +69,31 @@ CREATE TABLE IF NOT EXISTS settings (
 INSERT INTO settings (`key`, `value`) VALUES
     ('site_name', 'Rock the Equinox'),
     ('tagline', 'Stigler, Oklahoma\'s rock festival'),
-    ('event_dates', 'Dates TBA'),
-    ('venue', 'Stigler, OK'),
+    ('event_dates', 'October 2–3, 2026'),
+    ('venue', 'Lake John Wells, Stigler, OK'),
     ('ticket_url', ''),
     ('contact_email', '')
 ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);
 
--- Sample data (delete or replace with real lineup)
+-- Rock the Equinox XI lineup (October 2-3, 2026) — mirrors migrate_v3_lineup2026.sql
 INSERT INTO artists (name, genre, bio, stage, sort_order) VALUES
-    ('Sample Headliner', 'Rock', 'Replace with your real headliner bio.', 'Main Stage', 1),
-    ('Sample Opener', 'Southern Rock', 'Replace with your real opener bio.', 'Main Stage', 2);
+    ('Shotgun Funeral',        'Metal',         '', 'Main Stage', 1),
+    ('Stanley''s Revenge',     'Rock',          '', 'Main Stage', 2),
+    ('My Nightmare',           'Alt Rock',      '', 'Main Stage', 3),
+    ('Sin & Scar',             'Metal',         '', 'Main Stage', 4),
+    ('Oklahoma Blood',         'Groove Thrash', '', 'Main Stage', 5),
+    ('Seven Foot Monkey',      'Rock',          '', 'Main Stage', 6),
+    ('Dime Store Riot',        'Rock',          '', 'Main Stage', 7),
+    ('Redefind',               'Rock',          '', 'Main Stage', 8),
+    ('Waking the Sleeper',     'Hard Rock',     '', 'Main Stage', 9),
+    ('The Struggle',           'Rock',          '', 'Main Stage', 10),
+    ('The Stacys',             'Rock',          '', 'Main Stage', 11),
+    ('Stonebreed',             'Hard Rock',     '', 'Main Stage', 12),
+    ('Dreadful Day',           'Metal',         '', 'Main Stage', 13),
+    ('Strength In Agony',      'Metal',         '', 'Main Stage', 14),
+    ('Stilnoct',               'Metal',         '', 'Main Stage', 15),
+    ('No One',                 'Rock',          '', 'Main Stage', 16),
+    ('Cirkus',                 'Rock',          '', 'Main Stage', 17),
+    ('She Hates Me Not',       'Rock',          '', 'Main Stage', 18),
+    ('Stories Through Storms', 'Metalcore',     '', 'Main Stage', 19),
+    ('Left On Red',            'Rock',          '', 'Main Stage', 20);
