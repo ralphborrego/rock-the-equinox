@@ -81,10 +81,10 @@ ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);
 -- (links out, new tab); any other tier = name only. Source: the festival's
 -- Oct 4, 2026 thank-you post.
 INSERT INTO sponsors (name, tier, logo_url, website, sort_order) VALUES
-    ('The Loud Spot Podcast',   'Major', '',     'https://www.facebook.com/profile.php?id=100064166256775', 1),
+    ('The Loud Spot Podcast',   'Major', 'assets/img/sponsors/loud-spot-podcast.jpg', 'https://www.theloudspot.net', 1),
     ('Camp Chaos',              'Major', '',            '', 2),
-    ('Surviving Rocklahoma',    'Major', '',  'https://www.facebook.com/profile.php?id=100062920795534', 3),
-    ('Rebellious Photography',  'Major', '','https://www.facebook.com/profile.php?id=61570799018498', 4),
+    ('Surviving Rocklahoma',    'Major', 'assets/img/sponsors/surviving-rocklahoma.jpg', 'https://www.facebook.com/SurvivingRocklahoma', 3),
+    ('Rebellious Photography',  'Major', 'assets/img/sponsors/rebellious-photography.jpg','https://www.facebook.com/profile.php?id=61570799018498', 4),
     ('Monty Littlefield',       'Gold',      '', '', 5),
     ('Sebastian Cosme',         'Community', '', '', 6),
     ('Joey Fairchild',          'Community', '', '', 7),
