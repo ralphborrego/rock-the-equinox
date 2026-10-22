@@ -83,24 +83,26 @@ INSERT INTO sponsors (name, tier, logo_url, website, sort_order) VALUES
     ('Ol'' Raptor Tackle', 'Major', 'assets/img/sponsors/ol-raptor-tackle.jpg', 'https://www.google.com', 1);
 
 -- Rock the Equinox XI lineup (October 2-3, 2026) — mirrors migrate_v3_lineup2026.sql
-INSERT INTO artists (name, genre, bio, stage, sort_order) VALUES
-    ('Shotgun Funeral',        'Metal',         '', 'Main Stage', 1),
-    ('Stanley''s Revenge',     'Rock',          '', 'Main Stage', 2),
-    ('My Nightmare',           'Alt Rock',      '', 'Main Stage', 3),
-    ('Sin & Scar',             'Metal',         '', 'Main Stage', 4),
-    ('Oklahoma Blood',         'Groove Thrash', '', 'Main Stage', 5),
-    ('Seven Foot Monkey',      'Rock',          '', 'Main Stage', 6),
-    ('Dime Store Riot',        'Rock',          '', 'Main Stage', 7),
-    ('Redefind',               'Rock',          '', 'Main Stage', 8),
-    ('Waking the Sleeper',     'Hard Rock',     '', 'Main Stage', 9),
-    ('The Struggle',           'Rock',          '', 'Main Stage', 10),
-    ('The Stacys',             'Rock',          '', 'Main Stage', 11),
-    ('Stonebreed',             'Hard Rock',     '', 'Main Stage', 12),
-    ('Dreadful Day',           'Metal',         '', 'Main Stage', 13),
-    ('Strength In Agony',      'Metal',         '', 'Main Stage', 14),
-    ('Stilnoct',               'Metal',         '', 'Main Stage', 15),
-    ('No One',                 'Rock',          '', 'Main Stage', 16),
-    ('Cirkus',                 'Rock',          '', 'Main Stage', 17),
-    ('She Hates Me Not',       'Rock',          '', 'Main Stage', 18),
-    ('Stories Through Storms', 'Metalcore',     '', 'Main Stage', 19),
-    ('Left On Red',            'Rock',          '', 'Main Stage', 20);
+-- image_url values mirror migrate_v5_band_images.sql (photos sourced from the
+-- bands' own pages, Oct 21, 2026; blank = no verified photo found yet).
+INSERT INTO artists (name, genre, bio, image_url, stage, sort_order) VALUES
+    ('Shotgun Funeral',        'Metal',         '', '', 'Main Stage', 1),
+    ('Stanley''s Revenge',     'Rock',          '', 'assets/img/bands/stanleys-revenge.jpg', 'Main Stage', 2),
+    ('My Nightmare',           'Alt Rock',      '', 'assets/img/bands/my-nightmare.jpg', 'Main Stage', 3),
+    ('Sin & Scar',             'Metal',         '', '', 'Main Stage', 4),
+    ('Oklahoma Blood',         'Groove Thrash', '', 'assets/img/bands/oklahoma-blood.jpg', 'Main Stage', 5),
+    ('Seven Foot Monkey',      'Rock',          '', 'assets/img/bands/seven-foot-monkey.jpg', 'Main Stage', 6),
+    ('Dime Store Riot',        'Rock',          '', 'assets/img/bands/dime-store-riot.jpg', 'Main Stage', 7),
+    ('Redefind',               'Rock',          '', 'assets/img/bands/redefind.jpg', 'Main Stage', 8),
+    ('Waking the Sleeper',     'Hard Rock',     '', 'assets/img/bands/waking-the-sleeper.jpg', 'Main Stage', 9),
+    ('The Struggle',           'Rock',          '', '', 'Main Stage', 10),
+    ('The Stacys',             'Rock',          '', 'assets/img/bands/the-stacys.jpg', 'Main Stage', 11),
+    ('Stonebreed',             'Hard Rock',     '', 'assets/img/bands/stonebreed.jpg', 'Main Stage', 12),
+    ('Dreadful Day',           'Metal',         '', 'assets/img/bands/dreadful-day.jpg', 'Main Stage', 13),
+    ('Strength In Agony',      'Metal',         '', 'assets/img/bands/strength-in-agony.jpg', 'Main Stage', 14),
+    ('Stilnoct',               'Metal',         '', 'assets/img/bands/stilnoct.jpg', 'Main Stage', 15),
+    ('No One',                 'Rock',          '', 'assets/img/bands/no-one.jpg', 'Main Stage', 16),
+    ('Cirkus',                 'Rock',          '', 'assets/img/bands/cirkus.jpg', 'Main Stage', 17),
+    ('She Hates Me Not',       'Rock',          '', 'assets/img/bands/she-hates-me-not.jpg', 'Main Stage', 18),
+    ('Stories Through Storms', 'Metalcore',     '', 'assets/img/bands/stories-through-storms.jpg', 'Main Stage', 19),
+    ('Left On Red',            'Rock',          '', 'assets/img/bands/left-on-red.jpg', 'Main Stage', 20);
