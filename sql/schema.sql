@@ -82,7 +82,7 @@ ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);
 -- Oct 4, 2026 thank-you post.
 INSERT INTO sponsors (name, tier, logo_url, website, sort_order) VALUES
     ('The Loud Spot Podcast',   'Major', 'assets/img/sponsors/loud-spot-podcast.jpg', 'https://www.theloudspot.net', 1),
-    ('Camp Chaos',              'Major', '',            '', 2),
+    ('Coven of Chaos',          'Major', 'assets/img/sponsors/coven-of-chaos.jpg', '', 2),
     ('Surviving Rocklahoma',    'Major', 'assets/img/sponsors/surviving-rocklahoma.jpg', 'https://www.facebook.com/SurvivingRocklahoma', 3),
     ('Rebellious Photography',  'Major', 'assets/img/sponsors/rebellious-photography.jpg','https://www.facebook.com/profile.php?id=61570799018498', 4),
     ('Monty Littlefield',       'Gold',      '', '', 5),
