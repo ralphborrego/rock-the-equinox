@@ -86,10 +86,10 @@ INSERT INTO sponsors (name, tier, logo_url, website, sort_order) VALUES
 -- image_url values mirror migrate_v5_band_images.sql (photos sourced from the
 -- bands' own pages, Oct 21, 2026; blank = no verified photo found yet).
 INSERT INTO artists (name, genre, bio, image_url, stage, sort_order) VALUES
-    ('Shotgun Funeral',        'Metal',         '', '', 'Main Stage', 1),
+    ('Shotgun Funeral',        'Metal',         '', 'assets/img/bands/shotgun-funeral.jpg', 'Main Stage', 1),
     ('Stanley''s Revenge',     'Rock',          '', 'assets/img/bands/stanleys-revenge.jpg', 'Main Stage', 2),
     ('My Nightmare',           'Alt Rock',      '', 'assets/img/bands/my-nightmare.jpg', 'Main Stage', 3),
-    ('Sin & Scar',             'Metal',         '', '', 'Main Stage', 4),
+    ('Sin & Scar',             'Metal',         '', 'assets/img/bands/sin-and-scar.jpg', 'Main Stage', 4),
     ('Oklahoma Blood',         'Groove Thrash', '', 'assets/img/bands/oklahoma-blood.jpg', 'Main Stage', 5),
     ('Seven Foot Monkey',      'Rock',          '', 'assets/img/bands/seven-foot-monkey.jpg', 'Main Stage', 6),
     ('Dime Store Riot',        'Rock',          '', 'assets/img/bands/dime-store-riot.jpg', 'Main Stage', 7),

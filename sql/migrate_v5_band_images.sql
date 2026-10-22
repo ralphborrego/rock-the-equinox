@@ -3,9 +3,11 @@ SET NAMES utf8mb4;
 -- Images live in public/assets/img/bands/ and were sourced from the bands'
 -- own pages (Facebook, Bandsintown, official sites, EPKs) on Oct 21, 2026.
 -- Idempotent: plain UPDATEs keyed by artist name; safe to re-run.
--- Not yet photographed (no verifiable public photo found as of Oct 21, 2026):
---   Shotgun Funeral, Sin & Scar, The Struggle — their cards render without
---   an image until a verified photo is supplied.
+-- Shotgun Funeral and Sin & Scar photos were added later on Oct 21, 2026
+-- (from the bands' own Facebook pages, after a live hunt).
+-- Not yet photographed (no verifiable public photo found):
+--   The Struggle — its card renders without an image until a verified
+--   photo is supplied.
 
 UPDATE artists SET image_url = 'assets/img/bands/waking-the-sleeper.jpg'    WHERE name = 'Waking the Sleeper';
 UPDATE artists SET image_url = 'assets/img/bands/left-on-red.jpg'          WHERE name = 'Left On Red';
@@ -24,3 +26,5 @@ UPDATE artists SET image_url = 'assets/img/bands/stilnoct.jpg'             WHERE
 UPDATE artists SET image_url = 'assets/img/bands/no-one.jpg'               WHERE name = 'No One';
 UPDATE artists SET image_url = 'assets/img/bands/cirkus.jpg'               WHERE name = 'Cirkus';
 UPDATE artists SET image_url = 'assets/img/bands/she-hates-me-not.jpg'     WHERE name = 'She Hates Me Not';
+UPDATE artists SET image_url = 'assets/img/bands/shotgun-funeral.jpg'      WHERE name = 'Shotgun Funeral';
+UPDATE artists SET image_url = 'assets/img/bands/sin-and-scar.jpg'         WHERE name = 'Sin & Scar';
