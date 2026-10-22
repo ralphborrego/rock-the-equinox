@@ -76,11 +76,24 @@ INSERT INTO settings (`key`, `value`) VALUES
     ('contact_email', '')
 ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);
 
--- Sponsors — mirrors migrate_v4_sponsors.sql.
--- tier 'Major' = big logo (links out, new tab); any other tier = linked name only.
--- Website below is a placeholder test link (Google) until the board supplies the real URL.
+-- Sponsors — the RTE XI (2026) roster; mirrors migrate_v6_sponsors_2026.sql
+-- (which supersedes the v4 test entry). tier 'Major' = big logo card
+-- (links out, new tab); any other tier = name only. Source: the festival's
+-- Oct 4, 2026 thank-you post.
 INSERT INTO sponsors (name, tier, logo_url, website, sort_order) VALUES
-    ('Ol'' Raptor Tackle', 'Major', 'assets/img/sponsors/ol-raptor-tackle.jpg', 'https://www.google.com', 1);
+    ('The Loud Spot Podcast',   'Major', '',     'https://www.facebook.com/profile.php?id=100064166256775', 1),
+    ('Camp Chaos',              'Major', '',            '', 2),
+    ('Surviving Rocklahoma',    'Major', '',  'https://www.facebook.com/profile.php?id=100062920795534', 3),
+    ('Rebellious Photography',  'Major', '','https://www.facebook.com/profile.php?id=61570799018498', 4),
+    ('Monty Littlefield',       'Gold',      '', '', 5),
+    ('Sebastian Cosme',         'Community', '', '', 6),
+    ('Joey Fairchild',          'Community', '', '', 7),
+    ('Naomi Daniel',            'Community', '', '', 8),
+    ('Shannon Lee Palmer',      'Community', '', '', 9),
+    ('Tammy Lyn Durrett Thomas','Community', '', '', 10),
+    ('Christopher Scarbrough',  'Community', '', '', 11),
+    ('Jeremy Lovell',           'Community', '', '', 12),
+    ('City of Stigler',         'Community', '', '', 13);
 
 -- Rock the Equinox XI lineup (October 2-3, 2026) — mirrors migrate_v3_lineup2026.sql
 -- image_url values mirror migrate_v5_band_images.sql (photos sourced from the
